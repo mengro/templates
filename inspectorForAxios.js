@@ -102,6 +102,7 @@ export default function inspectAxios(){
         requestResultCheck(response, method);
         return response.data.data;
     }, function (error) {
+        loading && loading.close();
         const { status } = error.response;
         const options = {
             message: codeMessage[status],
