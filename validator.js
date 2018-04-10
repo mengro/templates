@@ -1,9 +1,6 @@
 import regExps from './regExps';
-console.log(regExps);
-
 class Validator {
     constructor(params){
-        console.log(params);
         this.reg = params.reg;
         this.message = params.message;
     }
