@@ -1,5 +1,9 @@
+import regExps from './regExps';
+console.log(regExps);
+
 class Validator {
     constructor(params){
+        console.log(params);
         this.reg = params.reg;
         this.message = params.message;
     }
@@ -11,58 +15,20 @@ class Validator {
         }
     };
 }
-export const ip = new Validator({
-    reg: /^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$/,
-    message: '请输入正确的ip地址'
-})
-export const name = new Validator({
-    reg: /^[\w\W]{1,30}$/,
-    message: '请输入长度为1-30位'
-})
-export const port = new Validator({
-    reg: /^([0-9]|[1-9]\d|[1-9]\d{2}|[1-9]\d{3}|[1-5]\d{4}|6[0-4]\d{3}|65[0-4]\d{2}|655[0-2]\d|6553[0-5])$/,
-    message: '请输入正确的端口号'
-})
-export const path = new Validator({
-    reg: /^[^\\]+$/,
-    message: '请输入正确的路径'
-})
-export const version = new Validator({
-    reg: /^([1-9][0-9]*)$/,
-    message: '版本号必须为纯数字'
-})
-export const int = new Validator({
-    reg: /^[\d]+$/,
-    message: '只能输入数字'
-})
-export const number = new Validator({
-    reg: /^\d+(\.\d+)?$/,
-    message: '只能输入数字'
-})
-export const configValue = new Validator({
-    reg: /^(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])\.(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9]?[0-9])$/
-})
-export const logName = new Validator({
-    reg: /^[A-Za-z0-9_]{6,30}$/,
-    message: '请输入6-30位的字母、数字、下划线的组合'
-})
-export const password = new Validator({
-    reg: /^[\w\W]{6,18}$/,
-    message: '请输入6-18位的字母、数字、字符的组合'
-})
-export const userName = new Validator({
-    reg: /^[\u4E00-\u9FA5A-Za-z0-9-_\.;#\(\)（）\[\]]{1,50}$/,
-    message: '名称输入不合法'
-})
-export const deviceName = new Validator({
-    reg: /^[\u4E00-\u9FA5A-Za-z0-9-_]{1,50}$/,
-    message: '请输入字母数字下划线的组合'
-})
-export const phoneNumber = new Validator({
-    reg: /^1[0-9]{10}$/,
-    message: '请输入合法的手机号码'
-})
-export const email = new Validator({
-    reg: /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/,
-    message: '请输入合法的邮箱地址'
-})
+export const validate_deviceName = { validator: new Validator(regExps.deviceName).validator, trigger: 'blur'}
+export const validate_phoneNumber = { validator: new Validator(regExps.phoneNumber).validator, trigger: 'blur'}
+export const validate_email = { validator: new Validator(regExps.email).validator, trigger: 'blur'}
+export const validate_ip = { validator: new Validator(regExps.ip).validator, trigger: 'blur'}
+export const validate_name = { validator: new Validator(regExps.name).validator, trigger: 'blur'}
+export const validate_port = { validator: new Validator(regExps.port).validator, trigger: 'blur'}
+export const validate_path = { validator: new Validator(regExps.path).validator, trigger: 'blur'}
+export const validate_version = { validator: new Validator(regExps.version).validator, trigger: 'blur'}
+export const validate_int = { validator: new Validator(regExps.int).validator, trigger: 'blur'}
+export const validate_number = { validator: new Validator(regExps.number).validator, trigger: 'blur'}
+export const validate_configValue = { validator: new Validator(regExps.configValue).validator, trigger: 'blur'}
+export const validate_logName = { validator: new Validator(regExps.logName).validator, trigger: 'blur'}
+export const validate_password = { validator: new Validator(regExps.password).validator, trigger: 'blur'}
+export const validate_userName = { validator: new Validator(regExps.userName).validator, trigger: 'blur'}
+
+//common
+export const validate_nameLength = { min: 1, max: 50, message: '长度在 1 到 50 个字符', trigger: 'blur' };
